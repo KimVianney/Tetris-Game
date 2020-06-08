@@ -68,7 +68,43 @@ document.addEventListener("DOMContentLoaded", () =>{
     }
 
     //To undraw the tetrominoes from the screen
+    function undraw(){
+        current.forEach(index => {
+            squares[currentPosition + index].classList.remove('tetromino');
+
+        })
+    }
+
+    //Timing each tetromino to Move Down
+
+    let timerID = setInterval(moveDown, 1000);
+
+    function moveDown(){
+        undraw();
+        currentPosition += width;
+        draw();
+        freeze();
+    }
+
+    //Function to prevent the tetrominoes from dropping from the screen
+    function freeze(){
+        if (current.some(index => squares[currentPosition + index + width].classList.contains('taken'))){
+            current.forEach(index => {
+                squares[currentPosition + index].classList.add('taken');
+            })
+
+            //Drop a new tetromino
+            randomTetro = Math.floor(Math.random() * theTetrominoes.length);
+            currentPosition = 4;
+            current = theTetrominoes[randomTetro][currentRotation];
+            draw();
+        }
+    }
+
+
+
     
+
 
 
 
