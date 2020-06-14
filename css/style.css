@@ -1,9 +1,28 @@
+.container{
+    display: flex;
+}
+
 .grid{
     width: 200px;
     height: 400px;
     display: flex;
     flex-wrap: wrap;
     background:yellow;
+}
+
+.mini-grid{
+    width: 80px;
+    height: 80px;
+    background: yellow;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 50px;
+    
+}
+
+.mini-grid div{
+    width: 20px;
+    height: 20px;
 }
 
 .grid div{
